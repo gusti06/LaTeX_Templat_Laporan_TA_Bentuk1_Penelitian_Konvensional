@@ -1,0 +1,2 @@
+# LaTeX_Templat_Laporan_TA_Bentuk1_Penelitian_Konvensional
+Template LaTeX untuk laporan tugas akhir bentuk 1 penelitian konvensional
