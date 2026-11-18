@@ -1,0 +1,63 @@
+% =====================================================================
+%  BAB III METODOLOGI
+% =====================================================================
+\chapter{METODOLOGI}
+\label{bab:metodologi}
+
+\petunjuk{Cara penelitian dilakukan, cukup rinci agar dapat direplikasi
+(Pedoman TA 7.3). \tahap{\WAJIB}{\WAJIB{} (final)}}
+
+\section{Alur Penelitian}
+\petunjuk{Diagram alir tahapan (studi literatur, pengumpulan data,
+perancangan, implementasi, pengujian, analisis) dan penjelasan naratif tiap
+tahap.}
+
+\begin{figure}[H]
+\centering
+% Ganti kotak berikut dengan: \includegraphics[width=0.8\linewidth]{gambar/alur-penelitian.png}
+\fbox{\parbox[c][5cm][c]{0.7\linewidth}{\centering
+  \isian{Sisipkan diagram alir penelitian}}}
+\caption{Diagram Alir Penelitian}
+\label{fig:alur-penelitian}
+\end{figure}
+
+\isian{Narasi tiap tahap pada Gambar~\ref{fig:alur-penelitian}.}
+
+\section{Pengumpulan Data}
+\petunjuk{Sumber data, karakteristik, metode pengumpulan, praproses, dan
+pembagian data latih/validasi/uji tanpa kebocoran data. Sertakan izin, etika,
+dan anonimisasi bila memakai data pribadi (UU No.~27 Tahun 2022). Uraikan
+secara naratif: sumber dan lisensi/izin, jumlah sampel dan atribut, metode
+pengumpulan, praproses, dan pembagian data.}
+
+\isian{Tulis uraian dalam bentuk paragraf.}
+
+\section{Perancangan Sistem/Model}
+\petunjuk{Arsitektur, pemilihan algoritma beserta justifikasi, hiperparameter,
+dan spesifikasi teknis. Untuk perangkat lunak sertakan UML (\textit{use case},
+\textit{class}, \textit{sequence}) atau DFD.}
+
+\isian{Tulis uraian dalam bentuk paragraf.}
+
+\section{Lingkungan Eksperimen}
+\petunjuk{Wajib untuk reprodusibilitas. Uraikan secara naratif: CPU / GPU /
+RAM, sistem operasi, bahasa pemrograman dan versi, \textit{framework/library}
+dan versi, platform \textit{cloud} (bila ada), \textit{seed} acak, dan
+repositori kode.}
+
+\isian{Tulis uraian dalam bentuk paragraf.}
+
+\section{Metode Pengujian dan Evaluasi}
+\petunjuk{Metrik evaluasi beserta rumus (nomor persamaan rata kanan) dan
+skenario uji, misalnya \textit{k-fold cross-validation}, uji pada dataset
+terpisah, \textit{stress test}, atau uji usabilitas.}
+
+\isian{Tulis uraian dalam bentuk paragraf.} Contoh penulisan persamaan
+bernomor seperti Persamaan~\eqref{eq:akurasi}:
+\begin{equation}
+  \text{Akurasi} = \frac{TP + TN}{TP + TN + FP + FN}
+  \label{eq:akurasi}
+\end{equation}
+dengan $TP$, $TN$, $FP$, dan $FN$ berturut-turut menyatakan
+\textit{true positive}, \textit{true negative}, \textit{false positive}, dan
+\textit{false negative}.

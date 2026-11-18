@@ -1,0 +1,52 @@
+% =====================================================================
+%  PETA KEWAJIBAN PER TAHAP  (HAPUS DARI NASKAH FINAL)
+% =====================================================================
+\halaman{PETA KEWAJIBAN PER TAHAP}
+
+{\itshape\noindent Seminar proposal (TA 1): dilaksanakan sebelum penelitian;
+yang dinilai adalah kelayakan rencana penelitian (Bab I sampai III). Sidang
+akhir (TA 2): dilaksanakan setelah penelitian selesai; yang dinilai adalah
+hasil, pembahasan, dan pemahaman mahasiswa.\par}
+
+\vspace{0.2cm}
+{\small\singlespacing\noindent \WAJIB: harus ada.
+\textcolor{merahwajib}{\textbf{WAJIB bila berlaku}}: bila kondisinya terpenuhi.
+\Opsional: boleh dikosongkan. \TidakPerlu: tidak diisi.\par}
+
+% Makro sel berwarna
+\newcommand{\cW}[1][WAJIB]{\cellcolor{bgwajib}\textcolor{merahwajib}{\textbf{#1}}}
+\newcommand{\cO}{\cellcolor{bgops}\textcolor{kuningops}{\textbf{Opsional}}}
+\newcommand{\cT}{\cellcolor{bgtidak}\textcolor{abuisian}{Tidak diperlukan}}
+
+\vspace{0.3cm}
+{\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{5.1cm}|
+                   >{\centering\arraybackslash}p{2.45cm}|
+                   >{\centering\arraybackslash}p{2.45cm}|}
+\hline
+\rowcolor{bgkepala}
+\textbf{Bagian} & \textbf{Seminar proposal} & \textbf{Sidang akhir} \\ \hline
+\endhead
+Halaman judul, pengesahan, orisinalitas & \cW & \cW \\ \hline
+Pernyataan penggunaan AI                & \cT & \cW \\ \hline
+Kata pengantar                          & \cO & \cW \\ \hline
+\textit{Abstract} dan Abstrak           & \cO & \cW \\ \hline
+BAB I Pendahuluan                       & \cW & \cW[WAJIB (final)] \\ \hline
+BAB II Tinjauan Pustaka                 & \cW & \cW[WAJIB (final)] \\ \hline
+BAB III Metodologi                      & \cW & \cW[WAJIB (final)] \\ \hline
+BAB IV Hasil dan Pembahasan             & \cT & \cW \\ \hline
+BAB V Kesimpulan dan Saran              & \cT & \cW \\ \hline
+Daftar pustaka                          & \cW & \cW \\ \hline
+Lampiran 1 (Form Kendali Bimbingan)     & \cW & \cW \\ \hline
+Lampiran 2 (berita acara seminar proposal) & \cT & \cW \\ \hline
+Lampiran 3 sampai 5 (kode, peta kode, data) & \cO & \cW \\ \hline
+Lampiran 6 sampai 8 (\textit{similarity}, log AI, riwayat versi) & \cT & \cW \\ \hline
+Lampiran 9 (daftar riwayat hidup)       & \cT & \cO \\ \hline
+\end{longtable}}
+
+{\scriptsize\itshape\color{abuisian}\noindent Pembagian ini disusun dari
+Pedoman TA Prodi IF dan rubrik TA non-konvensional; konfirmasikan ke
+Koordinator TA bila ragu.\par}
+\clearpage

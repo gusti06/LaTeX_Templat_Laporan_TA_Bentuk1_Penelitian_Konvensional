@@ -1,0 +1,106 @@
+% =====================================================================
+%  LAPORAN TUGAS AKHIR -- Bentuk 1: Penelitian Konvensional
+%  Program Studi Teknik Informatika, Fakultas Teknologi Industri
+%  Institut Teknologi Sumatera (ITERA)
+%
+%  Compiler Overleaf : pdfLaTeX (Menu > Settings > Compiler)
+%  Daftar pustaka    : BibTeX, gaya IEEE (IEEEtran)
+% =====================================================================
+\documentclass[11pt,twoside,openany]{report}
+\usepackage{itera-ta}
+
+% ---------------------------------------------------------------------
+%  SAKELAR TAHAP & PETUNJUK
+% ---------------------------------------------------------------------
+\sidangakhirtrue     % \sidangakhirfalse untuk naskah seminar proposal (Bab I-III)
+\petunjuktrue        % \petunjukfalse untuk menyembunyikan semua teks "Petunjuk:"
+\newif\iftampilpanduan
+\tampilpanduantrue   % \tampilpanduanfalse untuk naskah final
+                     % (menghapus halaman Petunjuk Pengisian & Peta Kewajiban)
+
+% ---------------------------------------------------------------------
+%  DATA TUGAS AKHIR -- ISI DI SINI, otomatis dipakai di semua halaman
+% ---------------------------------------------------------------------
+% Judul maksimal 16 kata, ditulis sama persis di semua halaman.
+\newcommand{\judulTA}{\isian{Judul Tugas Akhir, maksimal 16 kata}}
+% Judul yang sama dalam HURUF KAPITAL untuk sampul:
+\newcommand{\judulTAkapital}{\isian{JUDUL TUGAS AKHIR: OBJEK, METODE, DAN KONTEKS PENELITIAN}}
+\newcommand{\namaMhs}{\isian{Nama mahasiswa}}
+\newcommand{\nimMhs}{\isian{NIM}}
+\newcommand{\ttlMhs}{\isian{Tempat, tanggal lahir}}
+\newcommand{\pembimbing}{\isian{Nama dan gelar}}
+\newcommand{\nipPembimbing}{\isian{\dots\dots\dots\dots}}
+\newcommand{\pengujiSatu}{\isian{Nama dan gelar}}
+\newcommand{\nipPengujiSatu}{\isian{\dots\dots\dots\dots}}
+\newcommand{\pengujiDua}{\isian{Nama dan gelar}}
+\newcommand{\nipPengujiDua}{\isian{\dots\dots\dots\dots}}
+\newcommand{\koorprodi}{\isian{Nama dan gelar}}
+\newcommand{\nipKoorprodi}{\isian{\dots\dots\dots\dots}}
+\newcommand{\tanggalTA}{\isian{tanggal}}
+\newcommand{\tahunTA}{\isian{TAHUN}}
+\newcommand{\pasfoto}{}  % isi: gambar/pasfoto.jpg (kosongkan bila belum ada)
+
+\hypersetup{pdftitle={Laporan Tugas Akhir}, pdfauthor={Mahasiswa IF ITERA}}
+
+\begin{document}
+
+% =====================================================================
+%  BAGIAN AWAL (nomor halaman romawi kecil)
+% =====================================================================
+\pagenumbering{roman}
+\input{halaman/sampul}
+\input{halaman/pengesahan}
+\input{halaman/orisinalitas}
+\ifsidangakhir \input{halaman/pernyataan-ai} \fi
+\iftampilpanduan
+  \input{halaman/petunjuk-pengisian}
+  \input{halaman/peta-kewajiban}
+\fi
+\input{halaman/kata-pengantar}
+\input{halaman/abstract}
+\input{halaman/abstrak}
+
+\cleardoublepage
+\phantomsection\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\tableofcontents
+\clearpage
+\phantomsection\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\listoftables
+\clearpage
+\phantomsection\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+\listoffigures
+\input{halaman/singkatan}
+
+% =====================================================================
+%  BAGIAN INTI (nomor halaman arab)
+% =====================================================================
+\cleardoublepage
+\pagenumbering{arabic}
+\input{bab/bab1-pendahuluan}
+\input{bab/bab2-tinjauan-pustaka}
+\input{bab/bab3-metodologi}
+\ifsidangakhir
+  \input{bab/bab4-hasil-pembahasan}
+  \input{bab/bab5-kesimpulan-saran}
+\fi
+
+% =====================================================================
+%  DAFTAR PUSTAKA (IEEE, urut kemunculan)
+% =====================================================================
+\clearpage
+\phantomsection\addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+\begingroup
+\singlespacing
+\renewcommand{\bibpreamble}{\petunjuk{Gaya IEEE, diurutkan sesuai urutan
+  kemunculan. Minimal 15 sumber, minimal 70\% dari 3 tahun terakhir. Hanya
+  pustaka yang disitasi; cantumkan DOI bila ada. \tahap{\WAJIB}{\WAJIB}}}
+\bibliographystyle{IEEEtran}
+\bibliography{daftar-pustaka}
+\endgroup
+
+% =====================================================================
+%  LAMPIRAN
+% =====================================================================
+\input{lampiran/lampiran}
+
+\end{document}

@@ -1,0 +1,188 @@
+% =====================================================================
+%  itera-ta.sty -- Gaya Laporan Tugas Akhir Prodi Teknik Informatika ITERA
+%  Bentuk 1: Penelitian Konvensional
+%  Ukuran UNESCO 15,5 x 23 cm, Times 11 pt, spasi 1,5, margin cermin
+% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{itera-ta}[2026/11/18 Templat Laporan TA IF ITERA]
+
+% ---------- Tata letak halaman ----------
+\RequirePackage[paperwidth=15.5cm, paperheight=23cm,
+  top=2cm, bottom=2cm, inner=2.5cm, outer=2cm,
+  footskip=1cm, headheight=14pt]{geometry}
+
+% ---------- Huruf: Times New Roman ----------
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\IfFileExists{newtxtext.sty}
+  {\RequirePackage{newtxtext}\RequirePackage{newtxmath}}
+  {\RequirePackage{mathptmx}}
+
+% ---------- Bahasa Indonesia ----------
+\IfFileExists{indonesian.ldf}
+  {\RequirePackage[indonesian]{babel}}
+  {}
+
+% ---------- Paket umum ----------
+\RequirePackage{setspace}
+\RequirePackage{graphicx}
+\RequirePackage[table]{xcolor}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{array,tabularx,longtable,booktabs,multirow,makecell}
+\RequirePackage{float}
+\RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\RequirePackage{titlesec}
+\RequirePackage[titles]{tocloft}
+\RequirePackage{fancyhdr}
+\RequirePackage{caption}
+\RequirePackage{pdfpages}
+\RequirePackage{ragged2e}
+\RequirePackage[numbers,sort&compress]{natbib}
+\setlength{\bibsep}{2pt}
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
+  urlcolor=blue!50!black, pdfborder={0 0 0}}
+
+% ---------- Spasi & paragraf ----------
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\justifying
+\setlist{nosep, leftmargin=*}
+
+% ---------- Warna ----------
+\definecolor{abuisian}{gray}{0.45}
+\definecolor{merahwajib}{RGB}{192,0,0}
+\definecolor{kuningops}{RGB}{191,144,0}
+\definecolor{bgwajib}{RGB}{252,228,214}
+\definecolor{bgops}{RGB}{255,242,204}
+\definecolor{bgtidak}{RGB}{242,242,242}
+\definecolor{bgkepala}{RGB}{189,215,238}
+
+% ---------- Sakelar ----------
+% \petunjuktrue  : tampilkan teks "Petunjuk:" (hapus/matikan di naskah final)
+% \sidangakhirtrue: naskah sidang akhir (Bab I-V); \sidangakhirfalse: seminar proposal
+\newif\ifpetunjuk  \petunjuktrue
+\newif\ifsidangakhir \sidangakhirtrue
+
+% ---------- Makro isian & petunjuk ----------
+% \isian{...}  : teks abu-abu dalam kurung siku, ganti dengan isi Anda
+\newcommand{\isian}[1]{\textcolor{abuisian}{[#1]}}
+% \petunjuk{...} : petunjuk miring abu-abu, hilang bila \petunjukfalse
+\newcommand{\petunjuk}[1]{%
+  \ifpetunjuk
+    \par\noindent{\small\itshape\color{abuisian}\textbf{Petunjuk:} #1\par}%
+    \vspace{0.3\baselineskip}%
+  \fi}
+% Label status
+\newcommand{\WAJIB}{\textcolor{merahwajib}{\textbf{WAJIB}}}
+\newcommand{\Opsional}{\textcolor{kuningops}{\textbf{Opsional}}}
+\newcommand{\TidakPerlu}{\textcolor{abuisian}{Tidak diperlukan}}
+\newcommand{\TidakPerluSel}{\textcolor{abuisian}{\makecell{Tidak\\diperlukan}}}
+% \tahap{status sempro}{status sidang}
+\newcommand{\tahap}[2]{\ifpetunjuk{\footnotesize\itshape\color{abuisian}%
+  [Seminar proposal: #1 \textperiodcentered{} Sidang akhir: #2]}\fi}
+
+% ---------- Nama-nama bagian (Bahasa Indonesia) ----------
+\newcommand{\setnamabagian}{%
+  \renewcommand{\contentsname}{DAFTAR ISI}%
+  \renewcommand{\listtablename}{DAFTAR TABEL}%
+  \renewcommand{\listfigurename}{DAFTAR GAMBAR}%
+  \renewcommand{\bibname}{DAFTAR PUSTAKA}%
+  \renewcommand{\tablename}{Tabel}%
+  \renewcommand{\figurename}{Gambar}%
+  \renewcommand{\chaptername}{BAB}%
+  \renewcommand{\appendixname}{LAMPIRAN}}
+\@ifpackageloaded{babel}{\addto\captionsindonesian{\setnamabagian}}{}
+\AtBeginDocument{\setnamabagian}
+
+% ---------- Judul bab & subbab ----------
+\titleformat{\chapter}[block]
+  {\centering\bfseries\fontsize{13}{16}\selectfont}
+  {BAB \thechapter}{0.4em}{\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{0pt}{1.2\baselineskip}
+\titleformat{name=\chapter, numberless}[block]
+  {\centering\bfseries\fontsize{13}{16}\selectfont}{}{0pt}{\MakeUppercase}
+\titlespacing*{name=\chapter, numberless}{0pt}{0pt}{1.2\baselineskip}
+
+\titleformat{\section}{\bfseries\normalsize}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1\baselineskip}{0.3\baselineskip}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{0.8\baselineskip}{0.2\baselineskip}
+\titleformat{\subsubsection}{\bfseries\itshape\normalsize}{\thesubsubsection}{0.5em}{}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% ---------- Daftar isi / tabel / gambar ----------
+\renewcommand{\cftchappresnum}{BAB }
+\renewcommand{\cftchapnumwidth}{4.2em}
+\renewcommand{\cftchapaftersnum}{}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttabpresnum}{Tabel }
+\renewcommand{\cftfigpresnum}{Gambar }
+\setlength{\cfttabnumwidth}{4.5em}
+\setlength{\cftfignumwidth}{5.2em}
+\renewcommand{\cftbeforechapskip}{0.4em}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries\fontsize{13}{16}\selectfont}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\bfseries\fontsize{13}{16}\selectfont}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\bfseries\fontsize{13}{16}\selectfont}
+\renewcommand{\cftafterloftitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+
+% ---------- Keterangan tabel & gambar ----------
+% Tabel 2.1 Judul (di atas tabel) ; Gambar 2.1 Judul (di bawah gambar)
+\captionsetup{labelsep=space, font={small,singlespacing}, labelfont=bf,
+  justification=centering}
+\captionsetup[table]{position=top, skip=4pt}
+\captionsetup[figure]{position=bottom, skip=6pt}
+% Bab bernomor romawi (BAB I), subbab/tabel/gambar/persamaan tetap arab (1.1)
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\AtBeginEnvironment{tabular}{\singlespacing\small}
+\AtBeginEnvironment{tabularx}{\singlespacing\small}
+\AtBeginEnvironment{longtable}{\singlespacing\small}
+
+% ---------- Nomor halaman: tengah bawah ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+
+% ---------- Halaman tanpa nomor bab (pengesahan, abstrak, dll.) ----------
+% \halaman{JUDUL}            : judul di tengah, tidak masuk daftar isi
+% \halaman[toc]{JUDUL}        : judul di tengah, masuk daftar isi
+\newcommand{\halaman}[2][]{%
+  \ifstrempty{#1}
+    {\chapter*{#2}}
+    {\chapter*{#2}\addcontentsline{toc}{chapter}{#2}}}
+
+% ---------- Lampiran ----------
+% \lampiran{judul} -> "LAMPIRAN n. JUDUL", masuk daftar isi
+\newcounter{lampiran}
+\newcommand{\lampiran}[1]{%
+  \refstepcounter{lampiran}%
+  \chapter*{LAMPIRAN \arabic{lampiran}. \MakeUppercase{#1}}%
+  \addcontentsline{toc}{section}{Lampiran \arabic{lampiran}. #1}}
+% \tempeldokumen{berkas.pdf} : sisipkan dokumen PDF (form, Turnitin, dll.)
+\newcommand{\tempeldokumen}[1]{%
+  \IfFileExists{#1}
+    {\includepdf[pages=-, pagecommand={\thispagestyle{plain}}]{#1}}
+    {\par\noindent\isian{Tempelkan dokumen pada halaman ini}\par}}
+
+% ---------- Kotak centang ----------
+\newcommand{\kotak}{$\square$}
+\newcommand{\kotakcentang}{$\boxtimes$}
+
+\endinput

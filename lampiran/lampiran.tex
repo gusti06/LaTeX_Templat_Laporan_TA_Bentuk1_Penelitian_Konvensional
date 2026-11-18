@@ -1,0 +1,99 @@
+% =====================================================================
+%  DAFTAR LAMPIRAN & LAMPIRAN 1-9
+%  Untuk menempelkan dokumen PDF, simpan berkas di folder lampiran/ lalu
+%  ganti \tempeldokumen{} dengan nama berkasnya, mis.
+%  \tempeldokumen{lampiran/form-kendali.pdf}
+% =====================================================================
+\clearpage
+\halaman[toc]{DAFTAR LAMPIRAN}
+
+\petunjuk{Centang kolom Terlampir bila dokumen sudah dilampirkan dan isi nomor
+halaman. Setiap lampiran diawali halaman judul lampiran.}
+
+% Ganti \kotak dengan \kotakcentang setelah dokumen dilampirkan.
+% Nomor halaman terisi otomatis lewat \pageref.
+{\footnotesize
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{|c|>{\raggedright\arraybackslash}p{3.9cm}|
+  >{\centering\arraybackslash}p{1.65cm}|>{\centering\arraybackslash}p{1.65cm}|
+  c|c|}
+\hline
+\rowcolor{bgkepala}
+\textbf{No} & \textbf{Lampiran} & \textbf{Sempro} & \textbf{Sidang} &
+\textbf{Hal.} & \textbf{\checkmark} \\ \hline
+\endhead
+1 & Form Kendali Bimbingan & \WAJIB & \WAJIB & \pageref{lamp:1} & \kotak \\ \hline
+2 & Berita Acara Seminar Proposal & \TidakPerluSel & \WAJIB & \pageref{lamp:2} & \kotak \\ \hline
+3 & Kode Sumber dan Repositori & \Opsional & \WAJIB & \pageref{lamp:3} & \kotak \\ \hline
+4 & Peta Kode untuk \textit{Code Walkthrough} & \Opsional & \WAJIB & \pageref{lamp:4} & \kotak \\ \hline
+5 & Dataset dan Dokumentasi Data & \Opsional & \WAJIB & \pageref{lamp:5} & \kotak \\ \hline
+6 & Hasil Uji \textit{Similarity} & \TidakPerluSel & \WAJIB & \pageref{lamp:6} & \kotak \\ \hline
+7 & Log Sesi AI & \TidakPerluSel & \textcolor{merahwajib}{\textbf{\makecell{WAJIB\\bila berlaku}}} & \pageref{lamp:7} & \kotak \\ \hline
+8 & Bukti Riwayat Versi Laporan dan Kode & \TidakPerluSel & \WAJIB & \pageref{lamp:8} & \kotak \\ \hline
+9 & Daftar Riwayat Hidup & \TidakPerluSel & \Opsional & \pageref{lamp:9} & \kotak \\ \hline
+\end{longtable}}
+
+% ---------------------------------------------------------------------
+\lampiran{Form Kendali Bimbingan}\label{lamp:1}
+\petunjuk{Minimal 4 pertemuan per semester, ditandatangani pembimbing atau
+Kartu Kendali dari TASYS. \tahap{\WAJIB}{\WAJIB}}
+\tempeldokumen{lampiran/form-kendali-bimbingan.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Berita Acara Seminar Proposal}\label{lamp:2}
+\petunjuk{Beserta catatan perbaikan dari penguji dan bukti perbaikannya.
+\tahap{\TidakPerlu}{\WAJIB}}
+\tempeldokumen{lampiran/berita-acara-sempro.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Kode Sumber dan Repositori}\label{lamp:3}
+\petunjuk{Tautan repositori git, versi atau \textit{commit} final, dan
+potongan kode penting. Kode lengkap cukup di repositori.
+\tahap{\Opsional}{\WAJIB}}
+
+\noindent Repositori: \isian{\url{https://github.com/...}}\\
+\textit{Commit} final: \isian{hash commit}
+
+\tempeldokumen{lampiran/kode-sumber.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Peta Kode untuk Code Walkthrough}\label{lamp:4}
+\petunjuk{Wajib bila TA memuat implementasi perangkat lunak. Petakan modul
+utama agar penguji dapat menelusuri kode saat sidang.
+\tahap{\Opsional}{\WAJIB}}
+\petunjuk{Uraikan fungsi, algoritma atau keputusan teknis, dan alasan
+pemilihan untuk setiap modul / berkas.}
+
+\isian{Tulis uraian dalam bentuk paragraf.}
+
+% ---------------------------------------------------------------------
+\lampiran{Dataset dan Dokumentasi Data}\label{lamp:5}
+\petunjuk{Tautan dataset terbuka (Zenodo, Figshare, GitHub, repositori ITERA)
+beserta lisensi, atau metadata bila data terbatas (Pedoman TA 5.9).
+\tahap{\Opsional}{\WAJIB}}
+\tempeldokumen{lampiran/dataset.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Hasil Uji Similarity}\label{lamp:6}
+\petunjuk{Laporan Turnitin lengkap (\textit{highlighted matches}),
+\textit{similarity} $\leq$25\%, kutipan langsung $\leq$10\%.
+\tahap{\TidakPerlu}{\WAJIB}}
+\tempeldokumen{lampiran/turnitin.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Log Sesi AI}\label{lamp:7}
+\petunjuk{Ekspor sesi AI yang relevan bila memakai AI. Boleh berupa tautan
+ke repositori digital. \tahap{\TidakPerlu}{\WAJIB{} bila berlaku}}
+\tempeldokumen{lampiran/log-ai.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Bukti Riwayat Versi Laporan dan Kode}\label{lamp:8}
+\petunjuk{Tangkapan layar riwayat \textit{commit} dan riwayat versi dokumen,
+atau tautan aksesnya. \tahap{\TidakPerlu}{\WAJIB}}
+\tempeldokumen{lampiran/riwayat-versi.pdf}
+
+% ---------------------------------------------------------------------
+\lampiran{Daftar Riwayat Hidup}\label{lamp:9}
+\petunjuk{CV singkat penulis. \tahap{\TidakPerlu}{\Opsional}}
+\tempeldokumen{lampiran/cv.pdf}
